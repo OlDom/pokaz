@@ -6,16 +6,12 @@ const BASE = 'https://pokaz.me';
 const PLAYLIST_FILE = path.resolve('./playlists/pokaz_playlist.m3u8');
 const LOG_FILE = path.resolve('./playlists/error_log.txt');
 
-// ============================================
-// ПОЛНЫЙ СПИСОК КАНАЛОВ (ВОССТАНОВЛЕН ИЗ УСПЕШНЫХ ЗАПУСКОВ)
-// ============================================
 const channels = [
-  // Основные федеральные
   '/336-tv_pervyy_kanal_online.html',
   '/62-kanal-rossiya-24.html'
+  // ... остальные каналы
 ];
 
-// Очистка названия канала
 function cleanName(name) {
   return name
     .replace(/смотреть онлайн/i, '')
@@ -61,27 +57,31 @@ async function build() {
     console.log(`📺 [${i + 1}/${channels.length}] ${url}`);
 
     try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      await delay(3000);
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-      let stream = '';
+      // Ожидаем появления элемента плеера (максимум 3 секунды)
       try {
-        stream = await page.$eval('video', vid => vid.src);
+        await page.waitForSelector('pjsdiv', { timeout: 3000 });
       } catch {
-        console.warn('  ⚠️ Видео не найдено, пропускаем');
-        fs.appendFileSync(LOG_FILE, `${url} - видео не найдено\n`);
-        failCount++;
-        continue;
+        console.log('  ⚠️ Элемент плеера не найден, будет использован клик по координатам');
       }
 
-      if (!stream) {
-        console.warn('  ⚠️ Пустой src, пропускаем');
-        fs.appendFileSync(LOG_FILE, `${url} - пустой src\n`);
-        failCount++;
-        continue;
+      const playElement = await page.$('pjsdiv');
+      if (playElement) {
+        await playElement.click();
+        console.log('  ▶️ Клик по элементу плеера');
+      } else {
+        await page.mouse.click(300, 300);
+        console.log('  ▶️ Клик по координатам (300,300)');
       }
 
-      console.log(`  ✅ Найден поток`);
+      // Ждём сетевой ответ с .m3u8 (максимум 8 секунд)
+      const response = await page.waitForResponse(
+        resp => resp.url().includes('.m3u8') && resp.status() === 200,
+        { timeout: 8000 }
+      );
+      const stream = response.url();
+      console.log(`  ✅ Найден поток: ${stream.substring(0, 80)}...`);
 
       let name = '';
       try {
@@ -108,7 +108,8 @@ async function build() {
       failCount++;
     }
 
-    await delay(1000);
+    // Небольшая пауза между каналами (500 мс)
+    await delay(500);
   }
 
   fs.writeFileSync(PLAYLIST_FILE, playlist);
