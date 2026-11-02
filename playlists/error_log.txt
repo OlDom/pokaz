@@ -3,7 +3,15 @@ https://pokaz.me/438-kanal-mir-tv.html - Timed out after waiting 15000ms
 https://pokaz.me/396-kanal-oruzhie.html - Timed out after waiting 15000ms
 https://pokaz.me/103-kanal-ohotnik-i-rybolov.html - Timed out after waiting 15000ms
 https://pokaz.me/104-kanal-eda-tv.html - Timed out after waiting 15000ms
+https://pokaz.me/9-kanal-nickelodeon.html - Timed out after waiting 15000ms
+https://pokaz.me/13-disney-kanal.html - Timed out after waiting 15000ms
+https://pokaz.me/288-kanal-nick-jr.html - Timed out after waiting 15000ms
+https://pokaz.me/386-kanal-msm-tor.html - Timed out after waiting 15000ms
+https://pokaz.me/106-kanal-shanson-tv.html - Timed out after waiting 15000ms
 https://pokaz.me/264-kanal-vh1-classik.html - Timed out after waiting 15000ms
+https://pokaz.me/421-kanal-ru-tv.html - Timed out after waiting 15000ms
+https://pokaz.me/57-kanal-muz-tv-onlayn.html - Timed out after waiting 15000ms
+https://pokaz.me/159-kanal-mtv-hits.html - Timed out after waiting 15000ms
 https://pokaz.me/265-kanal-vh1-europe.html - Timed out after waiting 15000ms
 https://pokaz.me/354-kanal-setanta_sports-tv.html - Timed out after waiting 15000ms
 https://pokaz.me/362-kanal-krym-24.html - Timed out after waiting 15000ms
