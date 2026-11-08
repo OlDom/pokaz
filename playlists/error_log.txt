@@ -1,3 +1,4 @@
+https://pokaz.me/93-kanal-pyatyy-kanal-sankt-peterburg.html - Timed out after waiting 15000ms
 https://pokaz.me/144-kanal_rtr_planeta-tvkanal.html - Timed out after waiting 15000ms
 https://pokaz.me/438-kanal-mir-tv.html - Timed out after waiting 15000ms
 https://pokaz.me/448-kanal-rtg.html - Timed out after waiting 15000ms
@@ -7,4 +8,5 @@ https://pokaz.me/104-kanal-eda-tv.html - Timed out after waiting 15000ms
 https://pokaz.me/264-kanal-vh1-classik.html - Timed out after waiting 15000ms
 https://pokaz.me/265-kanal-vh1-europe.html - Timed out after waiting 15000ms
 https://pokaz.me/354-kanal-setanta_sports-tv.html - Timed out after waiting 15000ms
+https://pokaz.me/77-kanal-moskva-24.html - Timed out after waiting 15000ms
 https://pokaz.me/362-kanal-krym-24.html - Timed out after waiting 15000ms
